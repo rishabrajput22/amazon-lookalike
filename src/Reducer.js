@@ -1,14 +1,5 @@
 export const initialState = {
-  basket: [
-    {
-      id: "1234",
-      title:
-        "Apple iPad (10th generation): with A14 Bionic chip, 27.69 cm (10.9″) Liquid Retina display, 64GB, Wi-Fi 6, 12MP front/12MP back camera, Touch ID, all-day battery life – Blue",
-      price: 30900,
-      rating: 4,
-      image: "https://m.media-amazon.com/images/I/61uA2UVnYWL._SX679_.jpg",
-    },
-  ],
+  basket: [],
   user: null,
 };
 
@@ -16,6 +7,11 @@ const reducer = (state, action) => {
   console.log(action); // Remember to remove or wrap in a dev check for production
 
   switch (action.type) {
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
     case "ADD_TO_BASKET":
       return {
         ...state,
